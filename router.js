@@ -1,13 +1,12 @@
-const express=require("express")
-const Router=express.Router()
+const express = require("express");
+const Router = express.Router();
 
+// Importing controllers
+const user = require("./Modules/User/userController");
+const petuser = require("./Modules/Petshop/petshopuserController");
 
-const user=require("./Modules/User/userController")
+// Defining routes
+Router.post("/login", user.login);         
+Router.post("/petregister", petuser.petshopRegister); 
 
-
-
-Router.post("/login",user.login)
-
-
-
-module.exports=Router
+module.exports = Router;
