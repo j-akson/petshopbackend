@@ -2,18 +2,20 @@ const userSchema = require("./userSchema");
 
 
 let userRegistration = ((req, res) => {
+    console.log(req.body);
+    
     let user = new userSchema({
-        Firstname: req.body.firstname,
-        Lastname: req.body.lastname,
-        Email: req.body.email,
-        City: req.body.city, 
-        Dateofbirth: req.body.dateofbirth,
-        Address: req.body.address,
-      Pincode: req.body.pincode,
-        Contact: req.body.contact,
-        Gender: req.body.gender,
-        Password: req.body.password,
-        Confirmpassword: req.body.password
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        city: req.body.city, 
+        dateofbirth: req.body.dateofbirth,
+      address: req.body.address,
+      pincode: req.body.pincode,
+        contact: req.body.contact,
+        gender: req.body.gender,
+        password: req.body.password,
+        
     })
     user.save()
         .then((result) => {
