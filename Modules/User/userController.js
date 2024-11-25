@@ -20,6 +20,7 @@ let userRegistration = ((req, res) => {
     user.save()
         .then((result) => {
             res.json({
+                status:200,
                 msg: "sucessfully registered",
                 data: result
             })
@@ -35,7 +36,6 @@ let userRegistration = ((req, res) => {
 })
 
 
-
 const login = ((req, res) => {
     let email = req.body.email
     let password = req.body.password
@@ -46,17 +46,20 @@ const login = ((req, res) => {
             
            if(password==result.password){
             res.json({
+                status:200,
                 msg:"logged in success"
             })
            }
            else{
             res.json({
-                msg:"pswd eror"
+                status:400,
+                msg:"Incorrect Password"
             })
            }
         })
         .catch((err) => {
             res.json({
+                status:400,
                 msg: "user not found"
             })
         })
