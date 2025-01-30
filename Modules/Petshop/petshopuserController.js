@@ -17,6 +17,7 @@ const petshopRegister = (req, res) => {
     petuser.save()
         .then((result) => {
             res.json({
+                status:200,
                 msg: "successfully registered",
                 data: result
             });
@@ -26,8 +27,29 @@ const petshopRegister = (req, res) => {
                 err: error
             });
         });
+
+
+
 };
+ 
+let findshopregister=((req,res)=>{
+    petshopSchema.find({status:false})
+    .then((result)=>{
+        res.json({
+            msg:"accept user",
+            data:result
+        })
+    })
+    .catch((error)=>{
+        res.json({
+            err:"error"
+        })
+
+    })
+
+})
 
 module.exports = {
-    petshopRegister
+    petshopRegister,
+    findshopregister
 };
