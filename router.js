@@ -8,5 +8,6 @@ const petuser = require("./Modules/Petshop/petshopuserController");
 // Defining routes
 Router.post("/login", user.login);         
 Router.post("/petregister", petuser.petshopRegister); 
-Router.post("/petshopuserregistration",user.userRegistration)
+Router.post("/findregister",petuser. findshopregister)
+
 module.exports = Router;
